@@ -1,8 +1,8 @@
+/* Start */
 * {
     margin: 0;
     padding: 0;
 }
-
 :root {
     --color1: #cc9b5f;
     --color2: #6f420a;
@@ -11,20 +11,28 @@
     --color-fon: #e7e2dd;
 }
 
-/* Main page */
 
+
+/* Main page */
 body {
     font-family: 'Open Sans', 'sans-serif';
 }
+ul {
+    list-style-type: none;
+}
+
+
 
 /* Menu */
-
 header {
+    position: fixed;
+    z-index: 50;
     width: 100%;
     display: flex;
     background: #000;
+    top: 0;
+    left: 0;
 }
-
 .logo {
     text-transform: uppercase;
     color: var(--color2);
@@ -34,16 +42,37 @@ header {
     cursor: pointer;
     margin-bottom: 12px;
 }
+nav {
+    margin-left: 35%;
+    margin-top: 21px;
+    
+}
+a {
+    text-decoration: none;
+}
+.topnav a{ 
+    color: var(--color-text);
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.topnav a:hover {
+    border-bottom: 3px solid var(--color2);
+}
+.topnav .icon{
+    display: none;
+}
 
-/* Адаптив лого */
 
+
+/* Adaptive logo */
 @media screen and (max-width: 1110px) {
     .logo {
         min-width: 420px;
         font-size: 26px;
     }
 }
-
 @media screen and (max-width: 420px) {
     .logo {
         min-width: 210px;
@@ -53,50 +82,17 @@ header {
 
 
 
-nav {
-    margin-left: 35%;
-    margin-top: 21px;
-    
-}
-
-a {
-    text-decoration: none;
-}
-
-.topnav {
-}
-
-.topnav a{
-    color: var(--color-text);
-    text-align: center;
-    padding: 12px 16px;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.topnav a:hover {
-    border-bottom: 3px solid var(--color2);
-}
-
-.topnav .icon{
-    display: none;
-}
-
-
-/* Адаптив шапки */
-
-@media screen and (max-width: 1010px) {
+/* Adaptive menu */
+@media screen and (max-width: 1200px) {
     nav{
-        margin-left: 29%;
+        margin-left: 20%;
     }
 }
-
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1104px) {
     nav{
         margin-left: 10%;
     }
 }
-
 @media screen and (max-width: 1010px) {
     .topnav a{
         display: none;
@@ -113,23 +109,50 @@ a {
     }
     .topnav.responsive {
         position: relative;
+        top: 50px;
+        left: -200px;
     }
     header .topnav.responsive {
         height: 340px;
     }
     .topnav.responsive a.icon {
         position: absolute;
+        top: -50px;
+        right: -200px;
     }
     .topnav.responsive a {
         float: none;
         display: block;
         text-align: left;
     }
+    main .main-about {
+        padding: 50px 0 50px 0;
+    }
+    main .main-about p {
+        font-size: 14px;
+    }
+    main .main-about h1 {
+        font-size: 25px;
+    }
+    .main-about {
+        flex-direction: column;
+    }
+    .about-right {
+        text-align: center;
+        margin-left: 0;
+    }
+    .about-right li {
+        text-align: left;
+    }
+    .about-right h1 {
+        margin-top: 10px;
+        font-size: 20px;
+    }
 }
 
 
-/* Header */
 
+/* Header */
 .header{
     position: relative;
     height: 100vh;
@@ -140,10 +163,7 @@ a {
     justify-content: center;
     text-align: center;
     border-image: fill 0 linear-gradient(#0009, #0009);
-
 }
-
- 
 .overlay {
     height: 100%;
     width: 100%;
@@ -153,8 +173,6 @@ a {
     left: 0;
     z-index: 0;
 }
-
-
 .header-txt {
     text-align: center;
     color: var(--color-text);
@@ -164,20 +182,21 @@ a {
     float: left;
 }
 
+
+
+/* Adaptive header */
 @media screen and (max-width: 740px) {
     .header-txt {
         min-width: 320px;
         font-size: 20px;
     }
 }
-
 @media screen and (max-width: 320px) {
     .header-txt {
         min-width: 210px;
         font-size: 13px;
     }
 }
-
 /* 
 @media screen and (max-width: 640px) {
     img {
@@ -187,8 +206,40 @@ a {
 
 
 
-/* Block categories */
+/* About company */
+.container {
+    background-color: var(--color-fon);
+    padding-top: 80px;
+}
+.main-about {
+    width: 76%;
+    margin: 0 auto;
+    display: flex;
+}
+.about-img {
+    width: 350px;
+    height: 470px;
+}
+.about-right {
+    margin-left: 100px;
+}
+.about-right h1 {
+    display: inline-block;
+    border-bottom: 3px solid var(--color1);
+    padding-bottom: 20px;
+}
+.about-right p {
+    margin: 30px 0 50px 0;
+}
+.about-right li {
+    background: url(./img/icons8-галочка-24.png) 1px no-repeat;
+    padding-left: 27px;
+    margin-top: 10px;
+}
 
+
+
+/* Block categories */
 .categories-title {
     text-transform: uppercase;
     font-weight: 800;
@@ -197,18 +248,17 @@ a {
     background-color: var(--color-fon);
     padding-top: 80px;
 }
-
 .card-img {
     width: 160px;
     height: 160px;
     border-radius: 11px;
 }
-
 .cards {
     background-color: var(--color-fon);
     display: flex;
     justify-content: center;
 }
+
 
 
 /* Карточки контента */
@@ -221,25 +271,24 @@ a {
     box-shadow: 10px 10px 40px #434040;
     margin: 80px 0 80px 60px;
 }
-
 .card-title {
     margin-top: 15px;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
 }
-
 .card-sub {
     font-size: 12px;
     font-weight: 300;
     margin-top: 15px;
 }
 
+
+
 /* Кнопка */
 .btn-keeper {
     margin-top: 20px;
 }
-
 .btn {
     background-color: var(--color-logo);
     padding: 7px 12px;
@@ -247,35 +296,13 @@ a {
     border-radius: 5px;
     transition: 1 linear;
 }
-
 .btn:hover {
     background-color: var(--color1);
 }
 
 
-/* About company */
-
-.about-company {
-    background-color: var(--color-fon);
-    padding-top: 80px;
-}
-
-.company-title {
-    margin-bottom: 30px;
-    font-weight: 800;
-    font-size: 30px;
-    text-decoration: underline;
-    text-align: center;
-}
-
-.company-sub {
-    font-size: 20px;
-    text-align: center;
-    padding: 0 30px 100px 30px;
-}
 
 /* Form */
-
 section {
     display: flex;
     justify-content: center;
@@ -286,7 +313,6 @@ section {
     background-position: center;
     background-size: cover;
 }
-
 .form-box-1, .form-box-2 {
     position: relative;
     width: 400px;
@@ -299,20 +325,17 @@ section {
     justify-content: center;
     align-items: center;
 }
-
 h2 {
     font-size: 2em;
     color: var(--color-text);
     text-align: center;
 }
-
 .inputbox {
     position: relative;
     margin: 30px 0;
     width: 310px;
     border-bottom: 2px solid #fff;
 }
-
 .inputbox label {
     position: absolute;
     top: 50%;
@@ -323,12 +346,10 @@ h2 {
     transition: .5s;
     color: var(--color-text);
 }
-
 input:focus ~ label,
 input:valid ~ label {
     top: -5px;
 }
-
 .inputbox input {
     width: 100%;
     height: 50px;
@@ -339,7 +360,6 @@ input:valid ~ label {
     padding: 0 35px 0 5px;
     color: var(--color-text);
 }
-
 .forget {
     margin: -15px 0 15px;
     font-size: 0.9em;
@@ -347,20 +367,16 @@ input:valid ~ label {
     justify-content: center;
     color: var(--color-text);
 }
-
 .forget label a input {
     margin-right: 3px;
     color: var(--color-text);
 }
-
 .forget label a {
     color: var(--color-text);
 }
-
 .forget label a:hover {
     text-decoration: underline;
 }
-
 button {
     width: 100%;
     height: 40px;
@@ -373,36 +389,30 @@ button {
     font-weight: 600;
     color: var(--color-text);
 }
-
 .register {
     font-size: 0.9em;
     text-align: center;
     margin: 25px 0 10px;
     color: var(--color-text);
 }
-
 .register p a {
     font-weight: 600;
     color: var(--color-text);
     font-weight: 600;
 }
-
 .register p a:hover {
     text-decoration: underline;
-    color: var(--color-text);
-    
+    color: var(--color-text);  
 }
 
 
 
 /* Footer-links */
-
 footer {
     height: 100px;
     background: #000;
     display: flex;
 }
-
 .logo-footer {
     text-transform: uppercase;
     color: var(--color2);
@@ -411,18 +421,15 @@ footer {
     cursor: pointer;
     margin: 31px 0 0 46px;
 }
-
 .footer-links a {
     color: var(--color-text);
     margin-left: 63px;
     text-transform: uppercase;
     font-size: 15px;
 }
-
 .footer-links {
     margin: 37px 0 0 310px;
 }
-
 /* 
 Ченовик для какого нибудь блока
 border-radius: 10px; - закругление
