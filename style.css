@@ -10,7 +10,12 @@
     --color-logo: #4f3214;
     --color-fon: #e7e2dd;
 }
-
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
 
 
 /* Main page */
@@ -22,39 +27,33 @@ ul {
 }
 
 
-
-/* Menu */
+/* Header */
 header {
     position: fixed;
     z-index: 50;
     width: 100%;
     display: flex;
     background: #000;
-    top: 0;
-    left: 0;
 }
-.logo {
+.header-logo {
     text-transform: uppercase;
     color: var(--color2);
-    margin: 15px 0 0 5%;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 24px;
     cursor: pointer;
-    margin-bottom: 12px;
+    margin-top: 56px;
+    margin-left: 12%;
+    padding-bottom: 10px;
 }
 nav {
-    margin-left: 35%;
-    margin-top: 21px;
-    
-}
-a {
-    text-decoration: none;
+    margin-top: 56px;
+    margin-left: 26%;
 }
 .topnav a{ 
     color: var(--color-text);
     text-align: center;
     padding: 12px 16px;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
 }
 .topnav a:hover {
@@ -65,35 +64,40 @@ a {
 }
 
 
-
 /* Adaptive logo */
-@media screen and (max-width: 1110px) {
-    .logo {
+@media screen and (max-width: 1286px) {
+    .header-logo {
         min-width: 420px;
-        font-size: 26px;
+        font-size: 24px;
+    }
+    .main-welcome h1 {
+        font-size: 11px;
     }
 }
 @media screen and (max-width: 420px) {
-    .logo {
+    .header-logo {
         min-width: 210px;
         font-size: 17px;
     }
-}
-
-
-
-/* Adaptive menu */
-@media screen and (max-width: 1200px) {
-    nav{
-        margin-left: 20%;
+    .main-welcome h1 {
+        font-size: 8px;
     }
 }
-@media screen and (max-width: 1104px) {
+
+
+/* Adaptive header */
+@media screen and (max-width: 1286px) {
     nav{
-        margin-left: 10%;
+        margin-left: 2%;
     }
 }
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1260px) {
+    nav{
+        margin-left: 0px;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 1223px) {
     .topnav a{
         display: none;
     }
@@ -125,14 +129,18 @@ a {
         display: block;
         text-align: left;
     }
-    main .main-about {
+    main .main-welcome {
         padding: 50px 0 50px 0;
     }
-    main .main-about p {
-        font-size: 14px;
+    main .main-welcome p {
+        font-size: 10px;
     }
-    main .main-about h1 {
-        font-size: 25px;
+    main .main-welcome h1 {
+        font-size: 20px;
+    }
+    .main-img {
+        width: 200px;
+        height: 320px;
     }
     .main-about {
         flex-direction: column;
@@ -144,294 +152,56 @@ a {
     .about-right li {
         text-align: left;
     }
-    .about-right h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
 }
 
 
-
-/* Header */
-.header{
-    position: relative;
-    height: 100vh;
-    background: url('./img/header.jpg') center center no-repeat fixed;
-    background-size: cover;
+/* Main */
+main {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-image: fill 0 linear-gradient(#0009, #0009);
-}
-.overlay {
-    height: 100%;
+    flex-direction: column;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
 }
-.header-txt {
+main .main-welcome {
+    background: #000;
     text-align: center;
-    color: var(--color-text);
-    font-size: 35px;
-    text-transform: uppercase;
-    position: relative;
-    float: left;
+    padding: 200px 0 410px 0;
 }
-
-
-
-/* Adaptive header */
-@media screen and (max-width: 740px) {
-    .header-txt {
-        min-width: 320px;
-        font-size: 20px;
-    }
+main .main-welcome h1 {
+    color: #fff;
+    font-size: 50px;
+    margin-top: 140px;
 }
-@media screen and (max-width: 320px) {
-    .header-txt {
-        min-width: 210px;
-        font-size: 13px;
-    }
-}
-/* 
-@media screen and (max-width: 640px) {
-    img {
-        min-width: 320px;
-    }
-} */
-
-
-
 /* About company */
-.container {
-    background-color: var(--color-fon);
-    padding-top: 80px;
-}
-.main-about {
-    width: 76%;
+.wrapper {
+    width: 78%;
     margin: 0 auto;
-    display: flex;
 }
-.about-img {
-    width: 350px;
-    height: 470px;
+.main-img {
+    width: 340px;
+    height: 520px;
+}
+main .main-about {
+    display: flex;
+    padding: 100px 0 100px 0;
 }
 .about-right {
-    margin-left: 100px;
+    margin-left: 175px;
 }
 .about-right h1 {
     display: inline-block;
     border-bottom: 3px solid var(--color1);
     padding-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 25px;
 }
 .about-right p {
     margin: 30px 0 50px 0;
-}
-.about-right li {
-    background: url(./img/icons8-галочка-24.png) 1px no-repeat;
-    padding-left: 27px;
-    margin-top: 10px;
-}
-
-
-
-/* Block categories */
-.categories-title {
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 30px;
-    text-align: center;
-    background-color: var(--color-fon);
-    padding-top: 80px;
-}
-.card-img {
-    width: 160px;
-    height: 160px;
-    border-radius: 11px;
-}
-.cards {
-    background-color: var(--color-fon);
-    display: flex;
-    justify-content: center;
-}
-
-
-
-/* Карточки контента */
-.card {
-    background-color: #fff;
-    width: 200px;
-    height: 365px;
-    border-radius: 20px;
-    padding: 25px 0 0 39px;
-    box-shadow: 10px 10px 40px #434040;
-    margin: 80px 0 80px 60px;
-}
-.card-title {
-    margin-top: 15px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-.card-sub {
-    font-size: 12px;
-    font-weight: 300;
-    margin-top: 15px;
-}
-
-
-
-/* Кнопка */
-.btn-keeper {
-    margin-top: 20px;
-}
-.btn {
-    background-color: var(--color-logo);
-    padding: 7px 12px;
-    color: var(--color-text);
-    border-radius: 5px;
-    transition: 1 linear;
-}
-.btn:hover {
-    background-color: var(--color1);
-}
-
-
-
-/* Form */
-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    background: url(./img/fone-bg.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.form-box-1, .form-box-2 {
-    position: relative;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-h2 {
-    font-size: 2em;
-    color: var(--color-text);
-    text-align: center;
-}
-.inputbox {
-    position: relative;
-    margin: 30px 0;
-    width: 310px;
-    border-bottom: 2px solid #fff;
-}
-.inputbox label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    pointer-events: none;
-    transition: .5s;
-    color: var(--color-text);
-}
-input:focus ~ label,
-input:valid ~ label {
-    top: -5px;
-}
-.inputbox input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding: 0 35px 0 5px;
-    color: var(--color-text);
-}
-.forget {
-    margin: -15px 0 15px;
-    font-size: 0.9em;
-    display: flex;
-    justify-content: center;
-    color: var(--color-text);
-}
-.forget label a input {
-    margin-right: 3px;
-    color: var(--color-text);
-}
-.forget label a {
-    color: var(--color-text);
-}
-.forget label a:hover {
-    text-decoration: underline;
-}
-button {
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    background: var(--color-logo);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--color-text);
-}
-.register {
-    font-size: 0.9em;
-    text-align: center;
-    margin: 25px 0 10px;
-    color: var(--color-text);
-}
-.register p a {
-    font-weight: 600;
-    color: var(--color-text);
-    font-weight: 600;
-}
-.register p a:hover {
-    text-decoration: underline;
-    color: var(--color-text);  
-}
-
-
-
-/* Footer-links */
-footer {
-    height: 100px;
-    background: #000;
-    display: flex;
-}
-.logo-footer {
-    text-transform: uppercase;
-    color: var(--color2);
-    font-weight: 800;
-    font-size: 23px;
-    cursor: pointer;
-    margin: 31px 0 0 46px;
-}
-.footer-links a {
-    color: var(--color-text);
-    margin-left: 63px;
-    text-transform: uppercase;
+    font-style: italic;
     font-size: 15px;
 }
-.footer-links {
-    margin: 37px 0 0 310px;
+.about-right li {
+    background: url(./img/icons8-галочка-24.png) 0px no-repeat;
+    padding-left: 27px;
+    margin-top: 10px;
+    font-weight: bold;
 }
-/* 
-Ченовик для какого нибудь блока
-border-radius: 10px; - закругление
-box-shadow: 0 0 10px #000; - затемнение
-*/
