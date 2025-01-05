@@ -1,16 +1,31 @@
 <?php
 
+class Robinsons {
+    public $plot;
+    public $country;
+    public $city;
+}
+
+$cartoon = new Robinsons;
+$cartoon->plot = "Family";
+$cartoon->country = "USA";
+$cartoon->city = "Anchorage";
+
 class Clause {
-    public $role = 'Husband, dad';
-    public $name = 'Clause';
-    public $age = 38;
-    public $profession = 'Entrepreneur';
+    public $role;
+    public $name;
+    public $age;
+    public $profession;
     public function hello() {
         echo "Hello<br>";
     }
 }
 
 $clause = new Clause;
+$clause->role = "Husband, dad";
+$clause->name = "Clause";
+$clause->age = 38;
+$clause->profession = "Entrepreneur";
 $clause->role;
 $clause->name;
 $clause->age;
@@ -28,16 +43,20 @@ print_r($clause);
 
 
 class Margaret {
-    public $role = 'Wife, mom';
-    public $name = 'Margaret';
-    public $age = 36;
-    public $profession = 'Manager';
+    public $role;
+    public $name;
+    public $age;
+    public $profession;
     public function hey() {
         echo "Hey there! I`m here!<br>";
     }
 }
 
 $margaret = new Margaret;
+$margaret->role = "Wife, mom";
+$margaret->name = "Margaret";
+$margaret->age = 36;
+$margaret->profession = "Manager";
 $margaret->role;
 $margaret->name;
 $margaret->age;

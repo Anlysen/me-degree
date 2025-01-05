@@ -161,8 +161,8 @@ main {
     flex-direction: column;
     width: 100%;
 }
-main .main-welcome {
-    background: #000;
+.main-welcome {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)) url(./img/header.jpg), no-repeat center/cover;
     text-align: center;
     padding: 200px 0 410px 0;
 }
