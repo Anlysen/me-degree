@@ -1,65 +1,18 @@
 <?php
 
-// echo 'Текущая версия PHP: ' . phpversion() . "<br>";
-// echo 'This is PHP version: ' . PHP_VERSION;
+// echo date('l js \of F Y h:i:s A');
+// echo "<br>";
 
-// define('REQUIRE', require_once('index.php'));
+// $today = date("F j, Y, g:i a");
+// echo $today;
+// echo "<br>";
 
-// if (!defined('REQUIRE')) {
-//     define('REQUIRE', true);
-//     require 'index.php';
-// }
+// $today2 = date("m.d.y");
+// echo $today2;
+// echo "<br>";
 
-// Магические методы
-
-// Clone
-// class User {
-//     private $name;
-//     private $city;
-//     private $id;
-//     function __construct($name, $city)
-//     {
-//         $this->name = $name;
-//         $this->city = $city;
-//     }
-//     function setId($id)
-//     {
-//         $this->id = $id;
-//     }
-//     public function __clone()
-//     {
-//         $this->id = 0;
-//     }
-// }
-
-// $user1 = new User("Andrew", "Rostov-on-Don");
-// $user1->setId(5662);
-// $user2 = clone $user1;
-// var_dump($user2);
-
-
-// __set, __get
-
-class GetSet {
-    private $number = 1;
-    public function __get($name)
-    {
-        echo "You get {$name}";
-    }
-    public function __set($name, $value)
-    {
-        echo "You set {$name} to ";
-    }
-}
-
-$obj = new GetSet();
-echo $obj->number;
-echo $obj->number = 689;
-
-
-// __construct, __destruct
-// Экономит строчки кода
-
-
+// $today3 = date("j, n, Y");
+// echo $today3;
+// echo "<br>";
 
 ?>
