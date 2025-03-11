@@ -80,6 +80,7 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 
+
 // $username = $_POST['username'];
 // $email = $_POST['email'];
 
