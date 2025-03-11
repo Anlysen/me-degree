@@ -7,6 +7,9 @@ $lastday = mktime(0, 0, 0, 3, 0, 2000);
 echo "Последний день февраля в 2000 году: " , date('d', $lastday);
 echo "<br>";
 
+$last = mktime(0, 0, 0, 5, 0, 2008);
+echo date($last);
+echo "<br>";
 
 
 // Сегоднешняя дата
@@ -21,6 +24,8 @@ echo mt_rand($num1, $num2);
 echo "<br>";
 
 
+
+// Показывает, какой тип данных в переменной
 
 $values = [23, "23", 23.5, "23.5", null, true, false];
 foreach ($values as $value) {
@@ -86,5 +91,7 @@ $backToDecimal2 = bindec($bin2);
 
 echo "Обратно в десятичное число {$backToDecimal1} <br>";
 echo "Обратно в десятичное число {$backToDecimal2} <br>";
+
+
 
 ?>

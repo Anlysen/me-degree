@@ -128,4 +128,21 @@ class Lorraine {
     public $profession = 'Fashion designer';
 }
 
+$lorrain = [
+    60,
+    "grandma",
+    null,
+    true,
+    false
+];
+echo "<br>";
+
+foreach ($lorrain as $value) {
+    echo "My grandma has: ";
+    var_export($value);
+    echo ") = ";
+    var_dump(is_int($value));
+}
+echo "<br>";
+
 ?>
