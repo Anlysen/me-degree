@@ -43,27 +43,6 @@ $username = "root";
 $password = '';
 $db = "Penguins";
 
-// $conn = mysqli_connect($host, $username, $password, $db);
-// if ($conn->connect_error) {
-//     die ("Connection failed" . mysqli_connect_error());
-// }
-// echo "Connection successfully!";
-
-// $username = mysqli_real_escape_string($conn, $username);
-// var_dump($username);
-
-// $query = sprintf("SELECT user_id FROM Users WHERE username='%s'",
-//     //mysqli_real_escape_string($conn, $username));
-//     $username);
-// $result = mysqli_query($conn, $query);
-// printf("Возвращённые строки: %d.\n", mysqli_num_rows($result));
-
-// // Проверка на отсутствие пользователя
-
-// $sql = 'INSERT INTO Users(username, password, email) VALUES(?, ?, ?)';
-// $query = $pdo->prepare($sql);
-// $query->execute([$username, $email, $password]);
-
 try {
     // Подключение к базе данных
     $pdo = new PDO("mysql:host=$host;dbname=$db", $username, $password);
@@ -93,3 +72,20 @@ try {
 } catch (PDOException $e) {
     echo "Ошибка подключения: " . $e->getMessage();
 }
+
+// Добавление данных в таблицу
+
+try {
+    $conn = new PDO("mysql:host=$host; dbname=$db", $username, $password, $email);
+    $sql = "INSERT INTO Users (username, password, email)
+            VALUES ('Andrew', 345, 'an@lysen.com')";
+
+    $conn->exec($sql);
+    echo "Данные записаны в таблицу.";
+}
+
+catch (PDOException $e) {
+    echo $sql . $e->getMessage();
+}
+
+$conn = null;
