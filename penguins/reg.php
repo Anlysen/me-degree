@@ -4,88 +4,72 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
-if (!isset($_POST['username'])) {
-    echo "Данные не пришли!<br>";
-    echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
-    exit;
-}
-echo "данные пришли";
-
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
-
-$username = trim($username);
-$email = trim($email);
-
-if (empty($username)) {
-    echo "Имя пользователя не задано!";
-    echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
-    exit;
-}
-
-if (empty($email)) {
-    echo "Не введен email!";
-    echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
-    exit;
-}
-
-if (empty($password)) {
-    echo "Не введен пароль!";
-    echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
-    exit;
-}
-
-$host = "localhost";
-$db = "Penguins";
-$username = "root";
-$password = '';
-$db = "Penguins";
-
-try {
-    // Подключение к базе данных
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Проверка, что форма отправлена методом POST
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST["username"];
-        $email = $_POST["email"];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Хеширование пароля
-
-        // Подготовка SQL запроса
-        $stmt = $pdo->prepare("INSERT INTO Users (username, password, email) VALUES (:username, :password, :email)");
-
-        // Привязка параметров
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':email', $email);
-
-        // Выполнение запроса
-        if ($stmt->execute()) {
-            echo "Пользователь успешно зарегистрирован!";
-        } else {
-            echo "Ошибка при регистрации пользователя!";
-        }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!isset($_POST['username'])) {
+        echo "Данные не пришли!<br>";
+        echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
+        exit;
     }
-} catch (PDOException $e) {
-    echo "Ошибка подключения: " . $e->getMessage();
 }
 
-// Добавление данных в таблицу
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
 
-try {
-    $conn = new PDO("mysql:host=$host; dbname=$db", $username, $password, $email);
-    $sql = "INSERT INTO Users (username, password, email)
-            VALUES ('Andrew', 345, 'an@lysen.com')";
+    // Проверка полей
+    if (empty($username)) {
+        echo "Имя пользователя не задано!";
+        echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
+        exit;
+    }
 
-    $conn->exec($sql);
-    echo "Данные записаны в таблицу.";
-}
+    if (empty($email)) {
+        echo "Не введен email!";
+        echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
+        exit;
+    }
 
-catch (PDOException $e) {
-    echo $sql . $e->getMessage();
-}
+    if (empty($password)) {
+        echo "Не введен пароль!";
+        echo "<a href='reg.html'> Вернитесь на регистрацию!</a>";
+        exit;
+    }
 
-$conn = null;
+    // Подключение к базе данных
+    $servername = "localhost"; // Обычно localhost
+    $username = "root"; // Имя пользователя по умолчанию
+    $password = ""; // Пароль по умолчанию (оставьте пустым, если не установлен)
+    $dbname = "Penguins"; // Имя вашей базы данных
+ 
+    // Создание соединения
+    $conn = new mysqli($servername, $username, $password, $dbname);
+ 
+    // Проверка соединения
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+ 
+    // Получение данных из формы
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+ 
+        // Хеширование пароля перед сохранением (рекомендуется)
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+ 
+        // Подготовка и выполнение SQL-запроса
+        $stmt = $conn->prepare("INSERT INTO Users (username, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $hashedPassword);
+ 
+        if ($stmt->execute()) {
+            echo "Регистрация прошла успешно!";
+        } else {
+            echo "Ошибка: " . $stmt->error;
+        }
+ 
+        // Закрытие подготовленного выражения и соединения
+        $stmt->close();
+    }
+ 
+    $conn->close();
