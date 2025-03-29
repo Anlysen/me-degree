@@ -99,5 +99,17 @@ $distance = $point1->distanceTo($point2);
 echo "Расстояние между точками: " . $distance;
 echo "<br>";
 
+class World {
+    public $a;
+    public $b;
+    public static $c = 4;
+}
+
+$world = new World();
+$world->a = 12;
+$world->b = 90;
+echo $world->a;
+echo "<br>";
+echo World::$c;
 
 ?>
