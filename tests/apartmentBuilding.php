@@ -13,7 +13,7 @@ class Apartment { // Хранит информацию о квартире
         $this->area = $area;
     }
 
-    public function getInfo() : string {
+    public function getInfo() {
         return "Квартира №{$this->number}, Комнат: {$this->rooms}, Площадь: {$this->area} м";
     }
 }
@@ -23,14 +23,14 @@ class ApartmentBuilding { // Содержит список квартир
     private $apartments = [];
 
     public function __construct($address) {
-        $this->address;
+        $this->address = $address;
     }
 
-    public function addApartment(Apartment $apartment) :void {
+    public function addApartment(Apartment $apartment) {
         $this->apartments[] = $apartment;
     }
 
-    public function getInfo() : string {
+    public function getInfo() {
         $info = "Многоквартирный дом по адресу: {$this->address} <br>";
         $info .= "Квартиры: <br>";
         foreach ($this->apartments as $apartment) {
