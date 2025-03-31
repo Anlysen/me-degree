@@ -5,7 +5,7 @@ class Point {
     private float $y;
     private float $z;
 
-    // Принимает значения точки
+    // Принимает значения координат точки
     public function __construct(float $x, float $y, float $z) {
         $this->x = $x;
         $this->y = $y;
