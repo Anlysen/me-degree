@@ -167,4 +167,148 @@ class User {
 }
 
 $user = User::createUser("Andrew Paxton");
-echo $user->name;
+echo $user->name . "<br>";
+
+
+// $int1 = 81;
+// function  number() {
+//   $int1 = 18;
+//   echo $int1 . "<br>";
+// }
+// number();
+
+// function getMessage() {
+//     $message = "Привет, дружище!!";
+//     echo $message . "<br>";
+// }
+// getMessage();
+
+// echo 20 % 3 . "<br>";
+// echo 14 / 3 . "<br>";
+
+// $a = 12;
+// $b = 7;
+// $a -= $b;
+// $b *= 2;
+// echo $a . "<br>";
+
+// $a = 3;
+// $b = 8;
+// $c = $a + $b;
+// echo $c . "<br>";
+
+// $a = readline(3);
+// $b = readline(8);
+// $c = $a + $b;
+// echo $c . "<br>";
+
+// $num1 = 3;
+// $num2 = 9;
+// $num1 = $num1 ** 2;
+// $num2 = $num2 ** 2;
+
+// echo $num1 . "<br>"; // 9
+// echo $num2 . "<br>"; // 81
+
+// // Работа с массивом
+// $numbers = [40, 54, 66, 5];
+
+// // Складываем первые 3 числа
+// $sum1 = $numbers[0] + $numbers[1] + $numbers[2]; // 160
+
+// // Умножаем на 4-е число
+// $sum2  = $sum1 * $numbers[3]; // 800
+
+// // Находим остаток от деления
+// $sum3 = $sum2 % 10; // 0
+
+// // Вычитаем остаток от деления
+// $sum4 = $sum2 - $sum3; // 800
+
+// // Делим на 5
+// $result = $sum4 / 5; // 160
+
+// echo "Результат: " . $result;
+
+// $array = [20, 5, 4, 3];
+// $res1 = $array[0] * $array[1];
+// $res2 = $res1 / $array[3];
+// $res3 = $res2 - $array[2];
+// echo $res3 . "<br>";
+
+// $diff = ["Andrew", "wos", "born", "in", 1993, "year!"];
+// echo "$diff[0] $diff[1] $diff[2] $diff[3] $diff[4] $diff[5]";
+
+// $country = "Canada";
+// if ($country === "USA") {
+//     echo "Washington <br>";
+// } elseif ($country === "Canada") {
+//     echo "Toronto <br>";
+// } elseif ($country === "France") {
+//     echo "Paris <br>";
+// } else {
+//     echo "No correctly country! <br>";
+// }
+
+// $h = 0;
+// while ($h < 3){
+//     echo "Hello, my friend!<br>";
+//     $h++;
+// }
+
+// $y = 3;
+// do {
+//     echo "Good afternoon!<br>";
+//     $y--;
+// } while ($y > 1);
+
+$x = 10;
+do {
+    echo "Step " . $x . "<br>";
+    $x--;
+} while ($x >= 8);
+
+for ($z = 1; $z < 4; $z++) {
+    echo $z . "<br>";
+}
+
+$l = 1;
+for (; $l < 4;) {
+    echo $l . "<br>";
+    $l++;
+}
+
+$a = 5;
+if ($a > 0) {
+    echo 1 . "<br>";
+} elseif ($a == 0) {
+    echo 0;
+} else {
+    echo -1;
+}
+
+// Seasons
+$mouth = "Апрель";
+
+switch ($mouth) {
+    case "Декабрь":
+    case "Январь":
+    case "Февраль":
+        echo "Зима";
+        break;
+    case "Март":
+    case "Апрель":
+    case "Май":
+        echo "Весна";
+        break;
+    case "Июнь":
+    case "Июль":
+    case "Август":
+        echo "Лето";
+        break;
+    case "Сентябрь":
+    case "Октябрь":
+    case "Наябрь":
+        echo "Осень";
+        break;
+}
