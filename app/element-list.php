@@ -12,6 +12,7 @@ class User
 		$this->next = null;
 		$this->prev = null;
 	}
+
 	public function getName(): string
 	{
 		return $this->name;
