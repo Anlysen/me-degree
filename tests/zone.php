@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
 
 // // Перевод в верхний регистр
 // $line = 'Hello world';
@@ -189,12 +189,57 @@ error_reporting(E_ALL);
 
 // echo $result;
 
-$arr = [
-    'fruit' => 'apple',
-    'veggie' => 'carrot'
-];
+// Асоциативный массив
+// $arr = [
+//     'fruit' => 'apple',
+//     'veggie' => 'carrot'
+// ];
 
-define('fruit', 'veggie');
+// define('fruit', 'veggie');
 
-print $arr['fruit'];
-print "Hello {$arr[fruit]}";
+// print $arr['fruit'];
+// print "Hello {$arr[fruit]}";
+
+// Проверка на существование константы
+// define('VAL', 1);
+// if (defined('VAL')) echo VAL;
+
+// $index = mt_rand(1, 10);
+// $name = "VALUE{$index}";
+// define($name, 1);
+// echo constant($name);
+
+// // Определение флага
+// define('MY_FILE_INCLUDED', false); // Константа флага
+
+// function included_once_with_flag($filename)
+// {
+//     if (!defined('MY_FILE_INCLUDED' || !MY_FILE_INCLUDED)) {
+//         require $filename;
+//         define('MY_FILE_INCLUDED', true);
+//     }
+// }
+
+// Вычисление чисел фибоначи
+// function fibonacci($n)
+// {
+//     if ($n == 0) {
+//         return 0;
+//     } elseif ($n == 1) {
+//         return 1;
+//     }
+
+//     $a = 0;
+//     $b = 1;
+
+//     for ($i = 2; $i <= $n; $i++) {
+//         $c = $a + $b; // 1
+//         $a = $b; // 1
+//         $b = $c; // 1
+//     }
+
+//     return $b;
+// }
+
+// $number = 200;
+// echo "Number fibonacci with number $number: " . fibonacci($number);
